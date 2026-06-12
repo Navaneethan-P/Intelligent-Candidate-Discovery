@@ -1,0 +1,1302 @@
+{
+  "CAND_0001475": {
+    "rank": 79,
+    "total_score": 0.8009,
+    "scores": {
+      "technical_fit": 0.609790563583374,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.588,
+      "behavioral_fit": 0.7314,
+      "evidence_strength": 0.25,
+      "confidence": 61
+    }
+  },
+  "CAND_0001610": {
+    "rank": 6,
+    "total_score": 0.8897,
+    "scores": {
+      "technical_fit": 0.8541691303253174,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.528,
+      "behavioral_fit": 0.752,
+      "evidence_strength": 1.0,
+      "confidence": 84
+    }
+  },
+  "CAND_0001638": {
+    "rank": 74,
+    "total_score": 0.8029,
+    "scores": {
+      "technical_fit": 0.5383899211883545,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.524,
+      "behavioral_fit": 0.6016,
+      "evidence_strength": 0.75,
+      "confidence": 70
+    }
+  },
+  "CAND_0002025": {
+    "rank": 8,
+    "total_score": 0.8874,
+    "scores": {
+      "technical_fit": 0.8585594892501831,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.7700000000000001,
+      "behavioral_fit": 0.8702000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 90
+    }
+  },
+  "CAND_0002559": {
+    "rank": 85,
+    "total_score": 0.7973,
+    "scores": {
+      "technical_fit": 0.5078480243682861,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.674,
+      "behavioral_fit": 0.7676000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 67
+    }
+  },
+  "CAND_0003802": {
+    "rank": 77,
+    "total_score": 0.8019,
+    "scores": {
+      "technical_fit": 0.5757917165756226,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.524,
+      "behavioral_fit": 0.4416,
+      "evidence_strength": 0.75,
+      "confidence": 71
+    }
+  },
+  "CAND_0005260": {
+    "rank": 71,
+    "total_score": 0.8065,
+    "scores": {
+      "technical_fit": 0.8181564807891846,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.2,
+      "hiring_probability": 0.644,
+      "behavioral_fit": 0.7482,
+      "evidence_strength": 1.0,
+      "confidence": 86
+    }
+  },
+  "CAND_0005538": {
+    "rank": 53,
+    "total_score": 0.8177,
+    "scores": {
+      "technical_fit": 0.6054649353027344,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.4740000000000001,
+      "behavioral_fit": 0.8808,
+      "evidence_strength": 1.0,
+      "confidence": 76
+    }
+  },
+  "CAND_0005649": {
+    "rank": 44,
+    "total_score": 0.8255,
+    "scores": {
+      "technical_fit": 0.8580015897750854,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.528,
+      "behavioral_fit": 0.6452,
+      "evidence_strength": 0.25,
+      "confidence": 65
+    }
+  },
+  "CAND_0006060": {
+    "rank": 73,
+    "total_score": 0.8034,
+    "scores": {
+      "technical_fit": 0.4985605776309967,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.626,
+      "behavioral_fit": 0.9141999999999999,
+      "evidence_strength": 0.5,
+      "confidence": 65
+    }
+  },
+  "CAND_0006567": {
+    "rank": 70,
+    "total_score": 0.8075,
+    "scores": {
+      "technical_fit": 0.7363210320472717,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.7660000000000001,
+      "behavioral_fit": 0.6634000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 75
+    }
+  },
+  "CAND_0008425": {
+    "rank": 52,
+    "total_score": 0.818,
+    "scores": {
+      "technical_fit": 0.8389557003974915,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.41400000000000003,
+      "behavioral_fit": 0.6098,
+      "evidence_strength": 1.0,
+      "confidence": 81
+    }
+  },
+  "CAND_0009471": {
+    "rank": 98,
+    "total_score": 0.793,
+    "scores": {
+      "technical_fit": 0.5336013436317444,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.642,
+      "behavioral_fit": 0.654,
+      "evidence_strength": 0.5,
+      "confidence": 66
+    }
+  },
+  "CAND_0010257": {
+    "rank": 11,
+    "total_score": 0.8644,
+    "scores": {
+      "technical_fit": 0.8349255323410034,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.588,
+      "behavioral_fit": 0.7664000000000001,
+      "evidence_strength": 0.75,
+      "confidence": 79
+    }
+  },
+  "CAND_0010902": {
+    "rank": 94,
+    "total_score": 0.7942,
+    "scores": {
+      "technical_fit": 0.5336772203445435,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.584,
+      "behavioral_fit": 0.7236,
+      "evidence_strength": 0.5,
+      "confidence": 65
+    }
+  },
+  "CAND_0011687": {
+    "rank": 21,
+    "total_score": 0.8529,
+    "scores": {
+      "technical_fit": 0.8206338286399841,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.806,
+      "behavioral_fit": 0.6406,
+      "evidence_strength": 1.0,
+      "confidence": 90
+    }
+  },
+  "CAND_0012957": {
+    "rank": 58,
+    "total_score": 0.8129,
+    "scores": {
+      "technical_fit": 0.8593329191207886,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.41800000000000004,
+      "behavioral_fit": 0.724,
+      "evidence_strength": 0.75,
+      "confidence": 68
+    }
+  },
+  "CAND_0013440": {
+    "rank": 87,
+    "total_score": 0.796,
+    "scores": {
+      "technical_fit": 0.5518122315406799,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.8720000000000001,
+      "behavioral_fit": 0.631,
+      "evidence_strength": 0.25,
+      "confidence": 66
+    }
+  },
+  "CAND_0013613": {
+    "rank": 43,
+    "total_score": 0.8259,
+    "scores": {
+      "technical_fit": 0.6571173071861267,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.592,
+      "behavioral_fit": 0.6382,
+      "evidence_strength": 1.0,
+      "confidence": 81
+    }
+  },
+  "CAND_0015528": {
+    "rank": 24,
+    "total_score": 0.8494,
+    "scores": {
+      "technical_fit": 0.7325209379196167,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.512,
+      "behavioral_fit": 0.652,
+      "evidence_strength": 1.0,
+      "confidence": 81
+    }
+  },
+  "CAND_0018282": {
+    "rank": 88,
+    "total_score": 0.7957,
+    "scores": {
+      "technical_fit": 0.546696662902832,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.736,
+      "behavioral_fit": 0.5346000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 69
+    }
+  },
+  "CAND_0018499": {
+    "rank": 7,
+    "total_score": 0.888,
+    "scores": {
+      "technical_fit": 0.8634293675422668,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.8440000000000001,
+      "behavioral_fit": 0.782,
+      "evidence_strength": 1.0,
+      "confidence": 92
+    }
+  },
+  "CAND_0018549": {
+    "rank": 35,
+    "total_score": 0.8341,
+    "scores": {
+      "technical_fit": 0.8596137762069702,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.742,
+      "behavioral_fit": 0.611,
+      "evidence_strength": 0.75,
+      "confidence": 76
+    }
+  },
+  "CAND_0021349": {
+    "rank": 91,
+    "total_score": 0.795,
+    "scores": {
+      "technical_fit": 0.622141420841217,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.42400000000000004,
+      "behavioral_fit": 0.7869999999999999,
+      "evidence_strength": 0.25,
+      "confidence": 57
+    }
+  },
+  "CAND_0021545": {
+    "rank": 89,
+    "total_score": 0.7956,
+    "scores": {
+      "technical_fit": 0.548585057258606,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.65,
+      "behavioral_fit": 0.6118,
+      "evidence_strength": 0.5,
+      "confidence": 67
+    }
+  },
+  "CAND_0024202": {
+    "rank": 93,
+    "total_score": 0.7949,
+    "scores": {
+      "technical_fit": 0.5592500567436218,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.40800000000000003,
+      "behavioral_fit": 0.804,
+      "evidence_strength": 0.5,
+      "confidence": 61
+    }
+  },
+  "CAND_0025391": {
+    "rank": 97,
+    "total_score": 0.7931,
+    "scores": {
+      "technical_fit": 0.6304389238357544,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.73,
+      "behavioral_fit": 0.42940000000000006,
+      "evidence_strength": 0.25,
+      "confidence": 65
+    }
+  },
+  "CAND_0026426": {
+    "rank": 19,
+    "total_score": 0.8547,
+    "scores": {
+      "technical_fit": 0.5640661120414734,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.662,
+      "behavioral_fit": 0.8792,
+      "evidence_strength": 0.75,
+      "confidence": 74
+    }
+  },
+  "CAND_0026532": {
+    "rank": 49,
+    "total_score": 0.8191,
+    "scores": {
+      "technical_fit": 0.8640367984771729,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.508,
+      "behavioral_fit": 0.6264,
+      "evidence_strength": 1.0,
+      "confidence": 76
+    }
+  },
+  "CAND_0029213": {
+    "rank": 34,
+    "total_score": 0.8366,
+    "scores": {
+      "technical_fit": 0.5199083685874939,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.628,
+      "behavioral_fit": 0.9088,
+      "evidence_strength": 0.75,
+      "confidence": 72
+    }
+  },
+  "CAND_0030031": {
+    "rank": 15,
+    "total_score": 0.861,
+    "scores": {
+      "technical_fit": 0.7789575457572937,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.6759999999999999,
+      "behavioral_fit": 0.8678000000000001,
+      "evidence_strength": 0.75,
+      "confidence": 80
+    }
+  },
+  "CAND_0030348": {
+    "rank": 16,
+    "total_score": 0.8602,
+    "scores": {
+      "technical_fit": 0.7893416881561279,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.666,
+      "behavioral_fit": 0.7782000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 86
+    }
+  },
+  "CAND_0030468": {
+    "rank": 30,
+    "total_score": 0.8418,
+    "scores": {
+      "technical_fit": 0.8052420616149902,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.7620000000000001,
+      "behavioral_fit": 0.7348,
+      "evidence_strength": 0.5,
+      "confidence": 76
+    }
+  },
+  "CAND_0031829": {
+    "rank": 45,
+    "total_score": 0.8243,
+    "scores": {
+      "technical_fit": 0.5181875228881836,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.742,
+      "behavioral_fit": 0.9279999999999999,
+      "evidence_strength": 0.5,
+      "confidence": 69
+    }
+  },
+  "CAND_0033179": {
+    "rank": 90,
+    "total_score": 0.7953,
+    "scores": {
+      "technical_fit": 0.6750645041465759,
+      "seniority_fit": 0.6,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.936,
+      "behavioral_fit": 0.8668,
+      "evidence_strength": 0.25,
+      "confidence": 61
+    }
+  },
+  "CAND_0033549": {
+    "rank": 100,
+    "total_score": 0.7925,
+    "scores": {
+      "technical_fit": 0.6002616882324219,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.666,
+      "behavioral_fit": 0.6080000000000001,
+      "evidence_strength": 0.25,
+      "confidence": 62
+    }
+  },
+  "CAND_0035321": {
+    "rank": 78,
+    "total_score": 0.8018,
+    "scores": {
+      "technical_fit": 0.5506471991539001,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.734,
+      "behavioral_fit": 0.5816000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 69
+    }
+  },
+  "CAND_0039754": {
+    "rank": 26,
+    "total_score": 0.8454,
+    "scores": {
+      "technical_fit": 0.8667777180671692,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.9240000000000002,
+      "behavioral_fit": 0.8624,
+      "evidence_strength": 1.0,
+      "confidence": 87
+    }
+  },
+  "CAND_0040192": {
+    "rank": 65,
+    "total_score": 0.8096,
+    "scores": {
+      "technical_fit": 0.6134535074234009,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.59,
+      "behavioral_fit": 0.5518000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 67
+    }
+  },
+  "CAND_0041236": {
+    "rank": 59,
+    "total_score": 0.8129,
+    "scores": {
+      "technical_fit": 0.5800012350082397,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.5720000000000001,
+      "behavioral_fit": 0.7370000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 66
+    }
+  },
+  "CAND_0041568": {
+    "rank": 62,
+    "total_score": 0.812,
+    "scores": {
+      "technical_fit": 0.8488454818725586,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.358,
+      "behavioral_fit": 0.6166,
+      "evidence_strength": 0.75,
+      "confidence": 73
+    }
+  },
+  "CAND_0041669": {
+    "rank": 54,
+    "total_score": 0.8175,
+    "scores": {
+      "technical_fit": 0.7968764305114746,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.7580000000000001,
+      "behavioral_fit": 0.679,
+      "evidence_strength": 0.75,
+      "confidence": 75
+    }
+  },
+  "CAND_0041913": {
+    "rank": 96,
+    "total_score": 0.7937,
+    "scores": {
+      "technical_fit": 0.5113833546638489,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.9160000000000001,
+      "behavioral_fit": 0.7252,
+      "evidence_strength": 0.25,
+      "confidence": 66
+    }
+  },
+  "CAND_0042100": {
+    "rank": 81,
+    "total_score": 0.7987,
+    "scores": {
+      "technical_fit": 0.8503281474113464,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.648,
+      "behavioral_fit": 0.7378000000000001,
+      "evidence_strength": 0.0,
+      "confidence": 62
+    }
+  },
+  "CAND_0042506": {
+    "rank": 9,
+    "total_score": 0.879,
+    "scores": {
+      "technical_fit": 0.8923085927963257,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.792,
+      "behavioral_fit": 0.8792,
+      "evidence_strength": 0.75,
+      "confidence": 78
+    }
+  },
+  "CAND_0043860": {
+    "rank": 68,
+    "total_score": 0.8078,
+    "scores": {
+      "technical_fit": 0.6860030889511108,
+      "seniority_fit": 0.6,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.9240000000000002,
+      "behavioral_fit": 0.9603999999999999,
+      "evidence_strength": 0.25,
+      "confidence": 61
+    }
+  },
+  "CAND_0044378": {
+    "rank": 92,
+    "total_score": 0.7949,
+    "scores": {
+      "technical_fit": 0.559762179851532,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.606,
+      "behavioral_fit": 0.8542000000000001,
+      "evidence_strength": 0.25,
+      "confidence": 60
+    }
+  },
+  "CAND_0044855": {
+    "rank": 4,
+    "total_score": 0.9019,
+    "scores": {
+      "technical_fit": 0.8741678595542908,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.528,
+      "behavioral_fit": 0.7940000000000002,
+      "evidence_strength": 1.0,
+      "confidence": 85
+    }
+  },
+  "CAND_0046064": {
+    "rank": 13,
+    "total_score": 0.8634,
+    "scores": {
+      "technical_fit": 0.8452913761138916,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.7620000000000001,
+      "behavioral_fit": 0.6912,
+      "evidence_strength": 1.0,
+      "confidence": 90
+    }
+  },
+  "CAND_0046525": {
+    "rank": 29,
+    "total_score": 0.8419,
+    "scores": {
+      "technical_fit": 0.7182528972625732,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.802,
+      "behavioral_fit": 0.7942,
+      "evidence_strength": 0.75,
+      "confidence": 81
+    }
+  },
+  "CAND_0046703": {
+    "rank": 39,
+    "total_score": 0.8302,
+    "scores": {
+      "technical_fit": 0.6144091486930847,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.7540000000000001,
+      "behavioral_fit": 0.5908,
+      "evidence_strength": 0.5,
+      "confidence": 71
+    }
+  },
+  "CAND_0047721": {
+    "rank": 32,
+    "total_score": 0.8388,
+    "scores": {
+      "technical_fit": 0.8155114650726318,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.346,
+      "behavioral_fit": 0.6304,
+      "evidence_strength": 0.75,
+      "confidence": 72
+    }
+  },
+  "CAND_0050876": {
+    "rank": 76,
+    "total_score": 0.802,
+    "scores": {
+      "technical_fit": 0.7208884358406067,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.41800000000000004,
+      "behavioral_fit": 0.9181999999999999,
+      "evidence_strength": 1.0,
+      "confidence": 70
+    }
+  },
+  "CAND_0052328": {
+    "rank": 51,
+    "total_score": 0.818,
+    "scores": {
+      "technical_fit": 0.7805232405662537,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.9160000000000001,
+      "behavioral_fit": 0.7418,
+      "evidence_strength": 0.0,
+      "confidence": 67
+    }
+  },
+  "CAND_0052682": {
+    "rank": 18,
+    "total_score": 0.8561,
+    "scores": {
+      "technical_fit": 0.8633953332901001,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.802,
+      "behavioral_fit": 0.7556000000000002,
+      "evidence_strength": 0.75,
+      "confidence": 77
+    }
+  },
+  "CAND_0054123": {
+    "rank": 42,
+    "total_score": 0.8269,
+    "scores": {
+      "technical_fit": 0.8508710265159607,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.498,
+      "behavioral_fit": 0.5678,
+      "evidence_strength": 1.0,
+      "confidence": 76
+    }
+  },
+  "CAND_0055905": {
+    "rank": 36,
+    "total_score": 0.8339,
+    "scores": {
+      "technical_fit": 0.8531899452209473,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.2,
+      "hiring_probability": 0.798,
+      "behavioral_fit": 0.7278,
+      "evidence_strength": 1.0,
+      "confidence": 91
+    }
+  },
+  "CAND_0055992": {
+    "rank": 1,
+    "total_score": 0.9427,
+    "scores": {
+      "technical_fit": 0.905360758304596,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.738,
+      "behavioral_fit": 0.6674000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 91
+    }
+  },
+  "CAND_0057357": {
+    "rank": 40,
+    "total_score": 0.8297,
+    "scores": {
+      "technical_fit": 0.5104978680610657,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.7700000000000001,
+      "behavioral_fit": 0.735,
+      "evidence_strength": 0.75,
+      "confidence": 75
+    }
+  },
+  "CAND_0057563": {
+    "rank": 23,
+    "total_score": 0.8509,
+    "scores": {
+      "technical_fit": 0.7356088757514954,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.632,
+      "behavioral_fit": 0.7342000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 84
+    }
+  },
+  "CAND_0060054": {
+    "rank": 60,
+    "total_score": 0.8124,
+    "scores": {
+      "technical_fit": 0.819261908531189,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.794,
+      "behavioral_fit": 0.6532,
+      "evidence_strength": 1.0,
+      "confidence": 82
+    }
+  },
+  "CAND_0060419": {
+    "rank": 95,
+    "total_score": 0.7937,
+    "scores": {
+      "technical_fit": 0.5530303716659546,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.392,
+      "behavioral_fit": 0.583,
+      "evidence_strength": 0.75,
+      "confidence": 67
+    }
+  },
+  "CAND_0061257": {
+    "rank": 41,
+    "total_score": 0.8271,
+    "scores": {
+      "technical_fit": 0.7148807048797607,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.9480000000000001,
+      "behavioral_fit": 0.7632,
+      "evidence_strength": 0.5,
+      "confidence": 79
+    }
+  },
+  "CAND_0061265": {
+    "rank": 56,
+    "total_score": 0.8143,
+    "scores": {
+      "technical_fit": 0.7875273823738098,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.676,
+      "behavioral_fit": 0.667,
+      "evidence_strength": 0.25,
+      "confidence": 67
+    }
+  },
+  "CAND_0061339": {
+    "rank": 10,
+    "total_score": 0.8686,
+    "scores": {
+      "technical_fit": 0.7999597191810608,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.66,
+      "behavioral_fit": 0.6762,
+      "evidence_strength": 0.75,
+      "confidence": 80
+    }
+  },
+  "CAND_0061655": {
+    "rank": 47,
+    "total_score": 0.8214,
+    "scores": {
+      "technical_fit": 0.7665747404098511,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.652,
+      "behavioral_fit": 0.9458,
+      "evidence_strength": 0.75,
+      "confidence": 71
+    }
+  },
+  "CAND_0062096": {
+    "rank": 63,
+    "total_score": 0.8113,
+    "scores": {
+      "technical_fit": 0.5792293548583984,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.7220000000000001,
+      "behavioral_fit": 0.574,
+      "evidence_strength": 0.5,
+      "confidence": 70
+    }
+  },
+  "CAND_0063138": {
+    "rank": 66,
+    "total_score": 0.8092,
+    "scores": {
+      "technical_fit": 0.5924643874168396,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.634,
+      "behavioral_fit": 0.5878000000000001,
+      "evidence_strength": 0.5,
+      "confidence": 68
+    }
+  },
+  "CAND_0064904": {
+    "rank": 48,
+    "total_score": 0.8204,
+    "scores": {
+      "technical_fit": 0.8396784067153931,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.6120000000000001,
+      "behavioral_fit": 0.6834,
+      "evidence_strength": 0.75,
+      "confidence": 72
+    }
+  },
+  "CAND_0065195": {
+    "rank": 75,
+    "total_score": 0.8023,
+    "scores": {
+      "technical_fit": 0.8011105060577393,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.6200000000000001,
+      "behavioral_fit": 0.7986,
+      "evidence_strength": 0.0,
+      "confidence": 60
+    }
+  },
+  "CAND_0065878": {
+    "rank": 57,
+    "total_score": 0.8134,
+    "scores": {
+      "technical_fit": 0.7613686323165894,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.642,
+      "behavioral_fit": 0.6962,
+      "evidence_strength": 0.75,
+      "confidence": 78
+    }
+  },
+  "CAND_0066376": {
+    "rank": 17,
+    "total_score": 0.8588,
+    "scores": {
+      "technical_fit": 0.8629313707351685,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.504,
+      "behavioral_fit": 0.6322,
+      "evidence_strength": 1.0,
+      "confidence": 84
+    }
+  },
+  "CAND_0066999": {
+    "rank": 55,
+    "total_score": 0.8156,
+    "scores": {
+      "technical_fit": 0.8195102214813232,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.8520000000000001,
+      "behavioral_fit": 0.6258,
+      "evidence_strength": 0.0,
+      "confidence": 66
+    }
+  },
+  "CAND_0068351": {
+    "rank": 20,
+    "total_score": 0.853,
+    "scores": {
+      "technical_fit": 0.7931643724441528,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.794,
+      "behavioral_fit": 0.8130000000000001,
+      "evidence_strength": 0.75,
+      "confidence": 83
+    }
+  },
+  "CAND_0068811": {
+    "rank": 28,
+    "total_score": 0.8437,
+    "scores": {
+      "technical_fit": 0.8756913542747498,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.768,
+      "behavioral_fit": 0.8166,
+      "evidence_strength": 0.75,
+      "confidence": 77
+    }
+  },
+  "CAND_0071974": {
+    "rank": 14,
+    "total_score": 0.8616,
+    "scores": {
+      "technical_fit": 0.8646679520606995,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.6040000000000001,
+      "behavioral_fit": 0.7534000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 86
+    }
+  },
+  "CAND_0075439": {
+    "rank": 72,
+    "total_score": 0.8057,
+    "scores": {
+      "technical_fit": 0.8107852339744568,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.524,
+      "behavioral_fit": 0.7398,
+      "evidence_strength": 0.75,
+      "confidence": 69
+    }
+  },
+  "CAND_0075489": {
+    "rank": 99,
+    "total_score": 0.7929,
+    "scores": {
+      "technical_fit": 0.5726295113563538,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.7740000000000001,
+      "behavioral_fit": 0.364,
+      "evidence_strength": 0.5,
+      "confidence": 71
+    }
+  },
+  "CAND_0077337": {
+    "rank": 2,
+    "total_score": 0.9412,
+    "scores": {
+      "technical_fit": 0.8510920405387878,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.8300000000000001,
+      "behavioral_fit": 0.7773999999999999,
+      "evidence_strength": 1.0,
+      "confidence": 92
+    }
+  },
+  "CAND_0078492": {
+    "rank": 67,
+    "total_score": 0.8084,
+    "scores": {
+      "technical_fit": 0.8381286263465881,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.88,
+      "behavioral_fit": 0.651,
+      "evidence_strength": 0.0,
+      "confidence": 67
+    }
+  },
+  "CAND_0079284": {
+    "rank": 82,
+    "total_score": 0.7986,
+    "scores": {
+      "technical_fit": 0.824095606803894,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.7660000000000001,
+      "behavioral_fit": 0.774,
+      "evidence_strength": 0.75,
+      "confidence": 76
+    }
+  },
+  "CAND_0079387": {
+    "rank": 22,
+    "total_score": 0.8519,
+    "scores": {
+      "technical_fit": 0.7910292744636536,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.7740000000000001,
+      "behavioral_fit": 0.7808,
+      "evidence_strength": 1.0,
+      "confidence": 81
+    }
+  },
+  "CAND_0080124": {
+    "rank": 64,
+    "total_score": 0.8097,
+    "scores": {
+      "technical_fit": 0.4971117377281189,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.738,
+      "behavioral_fit": 0.6206,
+      "evidence_strength": 0.75,
+      "confidence": 74
+    }
+  },
+  "CAND_0080766": {
+    "rank": 5,
+    "total_score": 0.8903,
+    "scores": {
+      "technical_fit": 0.8016799688339233,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.7140000000000001,
+      "behavioral_fit": 0.7820000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 87
+    }
+  },
+  "CAND_0081686": {
+    "rank": 46,
+    "total_score": 0.8217,
+    "scores": {
+      "technical_fit": 0.8665546178817749,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.6000000000000001,
+      "hiring_probability": 0.514,
+      "behavioral_fit": 0.6368,
+      "evidence_strength": 1.0,
+      "confidence": 77
+    }
+  },
+  "CAND_0081846": {
+    "rank": 61,
+    "total_score": 0.8123,
+    "scores": {
+      "technical_fit": 0.8540357947349548,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.30000000000000004,
+      "hiring_probability": 0.892,
+      "behavioral_fit": 0.8148000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 86
+    }
+  },
+  "CAND_0082793": {
+    "rank": 84,
+    "total_score": 0.7981,
+    "scores": {
+      "technical_fit": 0.6394177675247192,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.532,
+      "behavioral_fit": 0.6412,
+      "evidence_strength": 0.25,
+      "confidence": 60
+    }
+  },
+  "CAND_0084819": {
+    "rank": 83,
+    "total_score": 0.7986,
+    "scores": {
+      "technical_fit": 0.8407585024833679,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.44599999999999995,
+      "behavioral_fit": 0.7768,
+      "evidence_strength": 0.0,
+      "confidence": 57
+    }
+  },
+  "CAND_0086022": {
+    "rank": 3,
+    "total_score": 0.9052,
+    "scores": {
+      "technical_fit": 0.8519822359085083,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.8200000000000001,
+      "behavioral_fit": 0.6744,
+      "evidence_strength": 0.75,
+      "confidence": 85
+    }
+  },
+  "CAND_0086151": {
+    "rank": 38,
+    "total_score": 0.8308,
+    "scores": {
+      "technical_fit": 0.8402713537216187,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.508,
+      "behavioral_fit": 0.6388,
+      "evidence_strength": 1.0,
+      "confidence": 76
+    }
+  },
+  "CAND_0088025": {
+    "rank": 31,
+    "total_score": 0.841,
+    "scores": {
+      "technical_fit": 0.8628715872764587,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.482,
+      "behavioral_fit": 0.8262,
+      "evidence_strength": 0.25,
+      "confidence": 64
+    }
+  },
+  "CAND_0088089": {
+    "rank": 69,
+    "total_score": 0.8075,
+    "scores": {
+      "technical_fit": 0.5220502614974976,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.74,
+      "behavioral_fit": 0.7466,
+      "evidence_strength": 0.5,
+      "confidence": 69
+    }
+  },
+  "CAND_0090234": {
+    "rank": 50,
+    "total_score": 0.8183,
+    "scores": {
+      "technical_fit": 0.5759227275848389,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.6120000000000001,
+      "behavioral_fit": 0.767,
+      "evidence_strength": 0.5,
+      "confidence": 67
+    }
+  },
+  "CAND_0093547": {
+    "rank": 33,
+    "total_score": 0.8387,
+    "scores": {
+      "technical_fit": 0.8613664507865906,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.4,
+      "hiring_probability": 0.45000000000000007,
+      "behavioral_fit": 0.6914,
+      "evidence_strength": 1.0,
+      "confidence": 82
+    }
+  },
+  "CAND_0093912": {
+    "rank": 12,
+    "total_score": 0.864,
+    "scores": {
+      "technical_fit": 0.871722400188446,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.7140000000000001,
+      "behavioral_fit": 0.7892,
+      "evidence_strength": 0.25,
+      "confidence": 70
+    }
+  },
+  "CAND_0094260": {
+    "rank": 86,
+    "total_score": 0.7967,
+    "scores": {
+      "technical_fit": 0.5455847382545471,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.4580000000000001,
+      "behavioral_fit": 0.5770000000000001,
+      "evidence_strength": 0.75,
+      "confidence": 68
+    }
+  },
+  "CAND_0094759": {
+    "rank": 25,
+    "total_score": 0.8455,
+    "scores": {
+      "technical_fit": 0.7604745626449585,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.494,
+      "behavioral_fit": 0.5192,
+      "evidence_strength": 1.0,
+      "confidence": 81
+    }
+  },
+  "CAND_0094891": {
+    "rank": 80,
+    "total_score": 0.7992,
+    "scores": {
+      "technical_fit": 0.5918530225753784,
+      "seniority_fit": 1.0,
+      "founding_fit": 1.0,
+      "hiring_probability": 0.746,
+      "behavioral_fit": 0.6284000000000001,
+      "evidence_strength": 0.25,
+      "confidence": 64
+    }
+  },
+  "CAND_0095528": {
+    "rank": 27,
+    "total_score": 0.8448,
+    "scores": {
+      "technical_fit": 0.8669440746307373,
+      "seniority_fit": 1.0,
+      "founding_fit": 0.5,
+      "hiring_probability": 0.52,
+      "behavioral_fit": 0.7106,
+      "evidence_strength": 0.75,
+      "confidence": 78
+    }
+  },
+  "CAND_0096172": {
+    "rank": 37,
+    "total_score": 0.8329,
+    "scores": {
+      "technical_fit": 0.8768757581710815,
+      "seniority_fit": 0.7,
+      "founding_fit": 0.7,
+      "hiring_probability": 0.33799999999999997,
+      "behavioral_fit": 0.6836000000000001,
+      "evidence_strength": 1.0,
+      "confidence": 72
+    }
+  }
+}
