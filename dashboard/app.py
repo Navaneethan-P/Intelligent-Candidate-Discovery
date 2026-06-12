@@ -5,6 +5,16 @@ import os
 
 st.set_page_config(page_title="AI Recruiter Dashboard", layout="wide")
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .stDeployButton {display:none;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 DASH_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(DASH_DIR)
 OUTPUTS_DIR = os.path.join(BASE_DIR, 'outputs')
