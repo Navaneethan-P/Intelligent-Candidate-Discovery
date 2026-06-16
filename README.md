@@ -1,6 +1,6 @@
 # Intelligent Candidate Discovery System
 
-![AI Recruiter Dashboard](docs/dashboard.png)
+![AI Recruiter Dashboard](dashboard.png)
 
 ## Overview
 This repository contains a comprehensive **Hybrid Semantic Retrieval & Candidate Ranking System** built for the Redrob AI Hackathon. 
