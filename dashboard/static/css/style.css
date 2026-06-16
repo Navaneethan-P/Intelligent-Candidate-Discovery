@@ -16,7 +16,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #c3dbec;
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
 }
@@ -56,7 +56,7 @@ h2 {
 
 .metric-card {
     background: #ffffff;
-    border: 1px solid var(--border-color);
+    border: 1.3px solid #254688;
     border-radius: 6px;
     padding: 20px;
 }
@@ -76,13 +76,15 @@ h2 {
 
 /* Dashboard Workspace */
 .dashboard-workspace {
+    padding-top: 70px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 45px;
     align-items: start;
 }
 
-.panel-left, .panel-right {
+.panel-left,
+.panel-right {
     min-height: 650px;
 }
 
@@ -103,7 +105,7 @@ h2 {
     padding: 10px 14px;
     font-size: 14px;
     background-color: var(--bg-light);
-    border: 1px solid var(--border-color);
+    border: 1.3px solid #254688;
     border-radius: 6px;
     color: var(--text-primary);
     outline: none;
@@ -114,7 +116,7 @@ h2 {
     width: 100%;
     max-height: 520px;
     overflow-y: auto;
-    border: 1px solid var(--border-color);
+    border: 1.3px solid #254688;
     border-radius: 6px;
 }
 
@@ -179,6 +181,7 @@ table tbody tr:hover {
 
 .reason-box {
     background-color: var(--bg-accent);
+    border: 1.3px solid #254688;
     color: var(--text-accent);
     padding: 18px;
     border-radius: 8px;
@@ -215,7 +218,8 @@ table tbody tr:hover {
     width: 100%;
     height: 8px;
     background-color: #e5e7eb;
-    border-radius: 4px;
+    border: 1.3px solid #254688;
+    border-radius: 10px;
     overflow: hidden;
 }
 

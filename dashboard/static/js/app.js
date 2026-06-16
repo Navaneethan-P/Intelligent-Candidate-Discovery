@@ -72,7 +72,7 @@ function renderTargetProfile(id) {
 
     // Direct binding of baseline layout parameters
     document.getElementById("candidateTitle").innerText = "Candidate: " + id;
-    document.getElementById("rank").innerText = "#" + candidate.rank;
+    document.getElementById("rank").innerText = candidate.rank;
     document.getElementById("score").innerText = candidate.score;
     document.getElementById("reasoning").innerText = candidate.reasoning;
 
