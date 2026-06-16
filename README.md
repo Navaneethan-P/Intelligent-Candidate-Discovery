@@ -3,32 +3,31 @@
 ![AI Recruiter Dashboard](docs/dashboard.png)
 
 ## Overview
-This repository contains a comprehensive candidate ranking and evaluation system designed to process large-scale applicant datasets and surface high-quality engineering talent based on multi-dimensional scoring. 
+This repository contains a comprehensive **Hybrid Semantic Retrieval & Candidate Ranking System** built for the Redrob AI Hackathon. 
 
-Traditional applicant tracking systems rely heavily on keyword matching, which often overlooks capable engineers and disproportionately favors keyword stuffing. To address this, we implemented a structured evaluation framework that computationally models the candidate review process.
+Traditional applicant tracking systems rely heavily on keyword matching, which often overlooks capable engineers and disproportionately favors keyword stuffing. To address this, we implemented a structured evaluation framework that computationally models the candidate review process using dense vector embeddings, FAISS indices, and mathematical decay modeling for behavioral signals.
 
 ## Methodology
-The system evaluates candidates across six distinct pillars:
+The system evaluates candidates across distinct dimensions using multi-faceted semantic search:
 
-1. Technical Fit: Measures semantic overlap between the candidate's career history and the job description using dense vector embeddings.
-2. Seniority Trajectory: Analyzes career progression to identify candidates who have successfully architected and owned systems, rather than just participating in them.
-3. Founding-Team Fit: Identifies candidates with experience in fast-paced, zero-to-one startup environments and broad technical ownership.
-4. Hiring Probability: Evaluates availability, responsiveness, and geographical alignment based on provided behavioral signals.
-5. Behavioral Fit: Assesses profile completeness and recent platform activity.
-6. Evidence Strength: Quantifies the presence of measurable engineering impact (e.g., latency reductions, system scale, user metrics) within the candidate's resume.
+1. **Multi-Dimensional Technical Fit:** We chunk both the candidate profiles and the Job Description into distinct segments (e.g., Role Core, Infrastructure, Engineering). We compute vector similarity using SentenceTransformers (`all-MiniLM-L6-v2`) and FAISS to find precise contextual overlap rather than holistic document similarity.
+2. **Seniority Trajectory:** Analyzes career progression to identify candidates who have successfully architected and owned systems, explicitly rewarding zero-to-one startup environments and structural engineering ownership.
+3. **Behavioral Probabilistic Modeling:** Instead of linear step-functions, we evaluate candidate availability, responsiveness, and recency using continuous exponential decay models (e.g., $e^{-\lambda x}$).
+4. **Factual Evidence Extraction:** The system algorithmically detects the presence of scale metrics (e.g., latency reductions, system scale, user metrics) within the candidate's resume to assign an evidence strength modifier.
 
 ## Architecture and Tools
-- Data Processing: Handles batch ingestion and transformation of large-scale JSONL and DOCX data.
-- Semantic Analysis: Utilizes Sentence Transformers (all-MiniLM-L6-v2) to calculate the cosine similarity between the job description and candidate profiles.
-- Heuristic Scoring: Employs targeted regex and heuristic patterns to evaluate unquantifiable signals like architectural ownership and startup experience.
-- Presentation Layer: Features a clean, analytical dashboard built with Streamlit for reviewing top candidates, their score breakdowns, and the system's underlying reasoning.
+- **Pipeline Orchestrator:** `src/build_ranking.py` coordinates the extraction, embedding, retrieval, and explainability generation.
+- **Data Loaders:** Stream-based chunking of large JSONL applicant data (`src/pipeline/data_loader.py`).
+- **Semantic Engine:** `all-MiniLM-L6-v2` bindings via `src/pipeline/embedding_engine.py`.
+- **Vector Index:** `faiss-cpu` flat index used for real-time dense vector retrieval (`src/pipeline/retrieval_faiss.py`).
+- **Explainability:** Traces semantic correlations back to the exact chunk of text in the candidate's profile to offer factual reasoning for the ranking score (`src/pipeline/explainer.py`).
 
 ## Repository Structure
-- `src/`: Contains the core ranking engine and scoring logic.
+- `src/pipeline/`: Contains the data ingestion, embedding, FAISS retrieval, and explainability extraction logic.
+- `src/scoring/`: Contains the decoupled business logic for Technical, Seniority, and Behavioral scoring.
+- `src/config.py`: Centralized parameter controls (weights, filepaths, batch sizes).
 - `dashboard/`: Contains the Streamlit application for reviewing results.
-- `outputs/`: Stores the generated CSV submission and explainability logs.
-- `tools/`: Includes the validation script used to verify output formatting against the official specification.
-- `docs/`: Contains detailed methodology documentation.
+- `outputs/`: Stores the generated CSV submission and transparent explainability logs.
 
 ## How to Run
 
@@ -37,20 +36,22 @@ The system evaluates candidates across six distinct pillars:
    pip install -r requirements.txt
    ```
 
-2. Place the extracted challenge dataset into the `challenge_data/India_runs_data_and_ai_challenge` directory. (Note: Raw data is not included in this repository).
+2. Place the extracted challenge dataset into your local `challenge_data` directory, and verify the path mapping in `src/config.py`.
 
 3. Execute the ranking pipeline:
    ```bash
    python src/build_ranking.py
    ```
+   *(Note: The `config.py` is currently set to evaluate `MAX_CANDIDATES = 5000` for swift testing. Change this to `None` to process the entire dataset.)*
 
 4. Launch the evaluation dashboard:
    ```bash
    python -m streamlit run dashboard/app.py
    ```
 
-## Output Validation
-The generated output can be validated using the provided tool to ensure strict compliance with the submission format:
+## Output Format
+The system produces an output strictly compliant with the hackathon judging criteria.
+You can validate it using:
 ```bash
 python tools/validate_submission.py
 ```
