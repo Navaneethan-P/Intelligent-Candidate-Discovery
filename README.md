@@ -1,5 +1,7 @@
 # Intelligent Candidate Discovery System
 
+**Version 2.0.0** (Native Python HTTP Server Dashboard)
+
 ![AI Recruiter Dashboard](dashboard.png)
 
 ## Overview
@@ -46,8 +48,9 @@ The system evaluates candidates across distinct dimensions using multi-faceted s
 
 4. Launch the evaluation dashboard:
    ```bash
-   python -m streamlit run dashboard/app.py
+   python dashboard/app.py
    ```
+   *(The dashboard will be available at http://localhost:5000)*
 
 ## Output Format
 The system produces an output strictly compliant with the hackathon judging criteria.
