@@ -1,57 +1,60 @@
 # Intelligent Candidate Discovery System
 
-![AI Recruiter Dashboard](dashboard.png)
+A candidate ranking system for the Redrob AI Hackathon that combines semantic search, scoring layers, and explainability into a simple review workflow.
 
-## Overview
-This repository contains a comprehensive **Hybrid Semantic Retrieval & Candidate Ranking System** built for the Redrob AI Hackathon. 
+## What this project does
+- Reads candidate profiles from a large JSONL dataset
+- Converts candidate text and the job description into vector embeddings
+- Scores candidates using:
+  - technical relevance
+  - seniority and startup experience
+  - founding / leadership potential
+  - hiring readiness
+  - behavioral signals
+- Writes a ranked CSV submission and a JSON explainability log
+- Serves a local browser dashboard for reviewing results
 
-Traditional applicant tracking systems rely heavily on keyword matching, which often overlooks capable engineers and disproportionately favors keyword stuffing. To address this, we implemented a structured evaluation framework that computationally models the candidate review process using dense vector embeddings, FAISS indices, and mathematical decay modeling for behavioral signals.
+## Why it matters
+Traditional recruiting systems often depend on keywords. This project uses semantic matching and behavioral scoring so candidate ranking is based on meaning and evidence rather than exact phrases.
 
-## Methodology
-The system evaluates candidates across distinct dimensions using multi-faceted semantic search:
+## Project layout
+- `src/build_ranking.py` — main ranking pipeline
+- `src/config.py` — dataset paths, model selection, weights, and output locations
+- `src/pipeline/` — data loading, chunk creation, embedding, FAISS retrieval, and explainability
+- `src/scoring/` — separate scoring modules for technical, seniority, and behavioral evaluation
+- `dashboard/` — HTML dashboard and Python server for viewing results
+- `outputs/` — generated `team_submission.csv` and `explainability_logs.json`
+- `tools/validate_submission.py` — validate the final submission format
 
-1. **Multi-Dimensional Technical Fit:** We chunk both the candidate profiles and the Job Description into distinct segments (e.g., Role Core, Infrastructure, Engineering). We compute vector similarity using SentenceTransformers (`all-MiniLM-L6-v2`) and FAISS to find precise contextual overlap rather than holistic document similarity.
-2. **Seniority Trajectory:** Analyzes career progression to identify candidates who have successfully architected and owned systems, explicitly rewarding zero-to-one startup environments and structural engineering ownership.
-3. **Behavioral Probabilistic Modeling:** Instead of linear step-functions, we evaluate candidate availability, responsiveness, and recency using continuous exponential decay models (e.g., $e^{-\lambda x}$).
-4. **Factual Evidence Extraction:** The system algorithmically detects the presence of scale metrics (e.g., latency reductions, system scale, user metrics) within the candidate's resume to assign an evidence strength modifier.
-
-## Architecture and Tools
-- **Pipeline Orchestrator:** `src/build_ranking.py` coordinates the extraction, embedding, retrieval, and explainability generation.
-- **Data Loaders:** Stream-based chunking of large JSONL applicant data (`src/pipeline/data_loader.py`).
-- **Semantic Engine:** `all-MiniLM-L6-v2` bindings via `src/pipeline/embedding_engine.py`.
-- **Vector Index:** `faiss-cpu` flat index used for real-time dense vector retrieval (`src/pipeline/retrieval_faiss.py`).
-- **Explainability:** Traces semantic correlations back to the exact chunk of text in the candidate's profile to offer factual reasoning for the ranking score (`src/pipeline/explainer.py`).
-
-## Repository Structure
-- `src/pipeline/`: Contains the data ingestion, embedding, FAISS retrieval, and explainability extraction logic.
-- `src/scoring/`: Contains the decoupled business logic for Technical, Seniority, and Behavioral scoring.
-- `src/config.py`: Centralized parameter controls (weights, filepaths, batch sizes).
-- `dashboard/`: Contains the Streamlit application for reviewing results.
-- `outputs/`: Stores the generated CSV submission and transparent explainability logs.
-
-## How to Run
-
-1. Install required dependencies:
+## Setup
+1. Install Python dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Place the extracted challenge dataset into your local `challenge_data` directory, and verify the path mapping in `src/config.py`.
+2. Place the challenge dataset in `challenge_data/India_runs_data_and_ai_challenge`.
 
-3. Execute the ranking pipeline:
-   ```bash
-   python src/build_ranking.py
-   ```
-   *(Note: The `config.py` is currently set to evaluate `MAX_CANDIDATES = 5000` for swift testing. Change this to `None` to process the entire dataset.)*
+3. Open `src/config.py` and set `DATA_DIR` to the dataset folder if needed.
 
-4. Launch the evaluation dashboard:
-   ```bash
-   python -m streamlit run dashboard/app.py
-   ```
-
-## Output Format
-The system produces an output strictly compliant with the hackathon judging criteria.
-You can validate it using:
+## Run the ranking pipeline
 ```bash
-python tools/validate_submission.py
+python src/build_ranking.py
 ```
+
+## Run the dashboard
+```bash
+python dashboard/app.py
+```
+
+Then open `http://localhost:5000` in your browser.
+
+## Notes
+- `src/config.py` uses `MAX_CANDIDATES = 5000` by default for faster testing. Set it to `None` to process the full dataset.
+- If the dashboard is empty, run the ranking pipeline first so `outputs/team_submission.csv` and `outputs/explainability_logs.json` are created.
+- Output files:
+  - `outputs/team_submission.csv`
+  - `outputs/explainability_logs.json`
+
+## Tips
+- Keep the dataset path up to date in `src/config.py`.
+- Use the dashboard to inspect top-ranked candidates and their scoring reasons.
