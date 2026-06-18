@@ -3,3 +3,7 @@ numpy
 sentence-transformers
 streamlit
 faiss-cpu
+fastapi
+uvicorn
+google-generativeai
+python-dotenv

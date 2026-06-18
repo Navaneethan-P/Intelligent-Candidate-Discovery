@@ -4,36 +4,27 @@ from config import MAX_CANDIDATES
 
 def load_candidates(filepath, batch_size=64):
     """
-    Generator that yields batches of candidates.
-    Filters out obvious non-matches based on current title.
+    Generator that yields batches of candidates from a JSONL file.
+    No keyword-based pre-filtering — semantic scoring via FAISS handles relevance.
     """
-    irrelevant_titles = [
-        'marketing', 'hr ', 'human resources', 'accountant', 'sales', 
-        'finance', 'customer support', 'graphic designer', 'content writer', 
-        'recruiter', 'business analyst', 'operations manager'
-    ]
-    
     batch = []
     count = 0
     with open(filepath, 'r', encoding='utf-8') as f:
         for line in f:
             if MAX_CANDIDATES and count >= MAX_CANDIDATES:
                 break
-            if not line.strip(): continue
+            if not line.strip():
+                continue
             count += 1
             if count % 1000 == 0:
                 print(f"Loaded {count} candidates...")
-                
+
             c = json.loads(line)
-            title = c.get('profile', {}).get('current_title', '').lower()
-            if any(it in title for it in irrelevant_titles):
-                continue
-                
             batch.append(c)
             if len(batch) >= batch_size:
                 yield batch
                 batch = []
-                
+
         if batch:
             yield batch
 
