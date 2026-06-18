@@ -2,7 +2,7 @@
 
 A candidate ranking system for the Redrob AI Hackathon that combines semantic search, scoring layers, and explainability into a simple review workflow.
 
--![AI Recuriter Dashboard](
+![AI Recuriter Dashboard](
    dashboard.png
 )
 ## What this project does
