@@ -1,11 +1,11 @@
-# 🚀 Intelligent Candidate Discovery System
+#  Intelligent Candidate Discovery System
 ### Redrob AI Hackathon — The Data & AI Challenge
 
 > **"Beyond Keyword Matching."** An agentic two-stage hybrid AI pipeline that ranks candidates the way a great recruiter would — by understanding context, not counting keywords.
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 Raw Job Description (any text)
@@ -47,7 +47,7 @@ Raw Job Description (any text)
 
 ---
 
-## 📦 Tech Stack
+##  Tech Stack
 
 | Component | Technology |
 |---|---|
@@ -60,7 +60,7 @@ Raw Job Description (any text)
 
 ---
 
-## ⚡ Key Features
+##  Key Features
 
 - **Zero Keyword Matching** — every scoring component uses cosine similarity over dense embeddings, not string matching or regex
 - **Dynamic JD Understanding** — Gemini parses any raw job description into structured semantic dimensions; no hardcoded JD required  
@@ -70,7 +70,7 @@ Raw Job Description (any text)
 
 ---
 
-## 🛠️ Setup & Installation
+##  Setup & Installation
 
 ### Prerequisites
 - Python 3.9+
@@ -116,7 +116,7 @@ API Endpoints:
 
 ---
 
-## 🐳 Docker
+##  Docker
 
 ```bash
 # Build
@@ -128,7 +128,7 @@ docker run -p 5000:5000 -e GEMINI_API_KEY=your_key ai-recruiter
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 ai_recruiter_submission/
@@ -159,7 +159,7 @@ ai_recruiter_submission/
 
 ---
 
-## 📊 Output Format
+##  Output Format
 
 `team_submission.csv`:
 ```
