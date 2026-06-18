@@ -2,6 +2,9 @@
 
 A candidate ranking system for the Redrob AI Hackathon that combines semantic search, scoring layers, and explainability into a simple review workflow.
 
+-![AI Recuriter Dashboard](
+   dashboard.png
+)
 ## What this project does
 - Reads candidate profiles from a large JSONL dataset
 - Converts candidate text and the job description into vector embeddings
