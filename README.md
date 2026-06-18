@@ -189,7 +189,7 @@ CAND_0001056,1,0.4821,"Senior ML Engineer with 8 years at Flipkart. Strong seman
 
 ---
 
-## 🔍 Validate Submission
+##  Validate Submission
 ```bash
 python tools/validate_submission.py
 ```
