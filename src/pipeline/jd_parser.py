@@ -17,12 +17,14 @@ class JDParser:
         Do not include any markdown formatting like ```json ... ```, just the raw JSON object.
         
         The dimensions should be roughly categorized into:
-        - "role_core": The core technical focus and main responsibilities.
-        - "infrastructure": The specific databases, cloud, or infrastructure tools required.
-        - "evaluation": The metrics, testing, or evaluation frameworks mentioned.
-        - "engineering": The general software engineering languages, system design, or scaling requirements.
+        - "role_core": The core technical focus and main responsibilities — what the person will actually build.
+        - "infrastructure": The specific databases, cloud, vector stores, or infrastructure tools required.
+        - "evaluation": The metrics, testing, or evaluation frameworks mentioned (NDCG, MRR, A/B testing, etc).
+        - "engineering": The general software engineering languages, system design, scaling, and code quality requirements.
+        - "culture_fit": The cultural and behavioral attributes sought — startup DNA, shipping mentality, product thinking.
 
-        If a category is not explicitly mentioned, infer the closest related requirements or provide a generic standard requirement based on the JD context.
+        Each dimension value should be a detailed sentence summarizing all relevant requirements from the JD for that dimension.
+        If a category is not explicitly mentioned, infer the closest related requirements from the JD context.
 
         Job Description:
         {raw_jd}
@@ -33,6 +35,8 @@ class JDParser:
             text = response.text.strip()
             if text.startswith('```json'):
                 text = text[7:]
+            if text.startswith('```'):
+                text = text[3:]
             if text.endswith('```'):
                 text = text[:-3]
             dimensions = json.loads(text.strip())
@@ -41,8 +45,9 @@ class JDParser:
             print(f"Error parsing JD via LLM: {e}")
             # Fallback to a default if the LLM fails
             return {
-                "role_core": "Deep technical depth in modern ML systems — embeddings, retrieval, ranking, LLMs, fine-tuning. Production experience with embeddings-based retrieval systems deployed to real users.",
-                "infrastructure": "Production experience with vector databases or hybrid search infrastructure — Pinecone, Weaviate, Qdrant, Milvus, OpenSearch, Elasticsearch, FAISS.",
-                "evaluation": "Hands-on experience designing evaluation frameworks for ranking systems — NDCG, MRR, MAP, offline-to-online correlation, A/B test interpretation.",
-                "engineering": "Strong Python. Background in distributed systems or large-scale inference optimization. Built scalable ranking, search, or recommendation system to real users at meaningful scale."
+                "role_core": "Deep technical depth in modern ML systems — embeddings, retrieval, ranking, LLMs, fine-tuning. Production experience with embeddings-based retrieval systems deployed to real users. Own the intelligence layer: ranking, retrieval, and matching systems.",
+                "infrastructure": "Production experience with vector databases or hybrid search infrastructure — Pinecone, Weaviate, Qdrant, Milvus, OpenSearch, Elasticsearch, FAISS. Operational experience with embedding drift, index refresh, retrieval-quality regression.",
+                "evaluation": "Hands-on experience designing evaluation frameworks for ranking systems — NDCG, MRR, MAP, offline-to-online correlation, A/B test interpretation. Set up offline benchmarks, online A/B testing, recruiter-feedback loops.",
+                "engineering": "Strong Python with emphasis on code quality. Background in distributed systems or large-scale inference optimization. Built scalable ranking, search, or recommendation system to real users at meaningful scale.",
+                "culture_fit": "Scrappy product-engineering attitude. Willing to ship a working system quickly. Startup 0-to-1 experience. Comfortable wearing multiple hats. Plans to stay 3+ years."
             }

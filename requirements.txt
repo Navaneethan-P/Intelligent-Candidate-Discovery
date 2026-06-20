@@ -1,7 +1,6 @@
 pandas
 numpy
 sentence-transformers
-streamlit
 faiss-cpu
 fastapi
 uvicorn

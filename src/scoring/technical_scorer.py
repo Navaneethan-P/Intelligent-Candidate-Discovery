@@ -92,12 +92,30 @@ class TechnicalScorer:
             best_matches[dim] = candidate_chunks_metadata[best_idx]
 
         # Overall technical score is a weighted average of dimension scores
-        weights = {
-            "role_core": 0.40,
-            "infrastructure": 0.30,
-            "evaluation": 0.20,
-            "engineering": 0.10
+        # Weights are dynamic to handle any JD dimensions from the parser
+        default_weights = {
+            "role_core": 0.35,
+            "infrastructure": 0.25,
+            "evaluation": 0.15,
+            "engineering": 0.15,
+            "culture_fit": 0.10,
         }
+        
+        # Use default weights for known dimensions, equal weight for unknown
+        active_dims = list(dimension_scores.keys())
+        weights = {}
+        total_known_weight = 0.0
+        for dim in active_dims:
+            if dim in default_weights:
+                weights[dim] = default_weights[dim]
+                total_known_weight += default_weights[dim]
+            else:
+                weights[dim] = 0.10  # Default weight for unexpected dimensions
+        
+        # Normalize weights to sum to 1.0
+        total_weight = sum(weights.values())
+        if total_weight > 0:
+            weights = {k: v / total_weight for k, v in weights.items()}
 
         overall_score = sum(
             dimension_scores.get(dim, 0) * w for dim, w in weights.items()

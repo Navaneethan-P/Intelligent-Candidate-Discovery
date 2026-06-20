@@ -7,7 +7,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-app = FastAPI(title="AI Recruiter Dashboard")
+app = FastAPI(
+    title="AI Recruiter Dashboard",
+    description="Intelligent Candidate Discovery & Ranking Engine — Redrob AI Challenge"
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,7 +21,6 @@ app.add_middleware(
 )
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Outputs are technically in the root dir's outputs, let's go one up then into outputs
 ROOT_DIR = os.path.dirname(BASE_DIR)
 OUTPUTS_DIR = os.path.join(ROOT_DIR, "outputs")
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
@@ -42,7 +44,13 @@ async def get_dashboard_data():
         return JSONResponse(content={
             "table": [],
             "logs": {},
-            "summary": {"processed": "5,000+", "top_candidates": 0, "avg_tech": 0, "avg_founding": 0, "avg_hiring": 0}
+            "summary": {
+                "processed": "—",
+                "top_candidates": 0,
+                "avg_tech": 0,
+                "avg_signal": 0,
+                "avg_hiring": 0
+            }
         })
 
     try:
@@ -51,20 +59,23 @@ async def get_dashboard_data():
             logs = json.load(f)
 
         if logs:
-            avg_tech = sum(log["scores"]["technical_fit"] for log in logs.values()) / len(logs)
-            avg_founding = sum(log["scores"]["founding_fit"] for log in logs.values()) / len(logs)
-            avg_hiring = sum(log["scores"]["hiring_probability"] for log in logs.values()) / len(logs)
+            avg_tech = sum(log["scores"].get("technical_fit", 0) for log in logs.values()) / len(logs)
+            avg_signal = sum(log["scores"].get("signal_score", 0) for log in logs.values()) / len(logs)
+            avg_hiring = sum(log["scores"].get("hiring_probability", 0) for log in logs.values()) / len(logs)
         else:
-            avg_tech = avg_founding = avg_hiring = 0
+            avg_tech = avg_signal = avg_hiring = 0
+
+        # Determine total processed count from logs metadata or default
+        total_processed = len(df)
 
         return JSONResponse(content={
             "table": df.to_dict(orient="records"),
             "logs": logs,
             "summary": {
-                "processed": "5,000+",
+                "processed": f"{total_processed}",
                 "top_candidates": len(df),
                 "avg_tech": round(avg_tech * 100, 1),
-                "avg_founding": round(avg_founding * 100, 1),
+                "avg_signal": round(avg_signal * 100, 1),
                 "avg_hiring": round(avg_hiring * 100, 1)
             }
         })
@@ -77,7 +88,8 @@ async def health_check():
     json_path = os.path.join(OUTPUTS_DIR, "explainability_logs.json")
     return JSONResponse(content={
         "status": "ok",
-        "pipeline": "Agentic Two-Stage Hybrid Retrieval Engine",
+        "pipeline": "Agentic Two-Stage Hybrid Retrieval Engine v2",
+        "scoring_dimensions": 8,
         "models": {
             "embedding": "all-MiniLM-L6-v2",
             "llm_reranker": "gemini-2.5-flash",

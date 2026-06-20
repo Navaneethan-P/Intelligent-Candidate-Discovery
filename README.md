@@ -12,34 +12,37 @@ Raw Job Description (any text)
          │
          ▼
 ┌─────────────────────────────┐
-│  Stage 0 — LLM JD Parser   │  ← Gemini 2.0 Flash extracts
-│  (jd_parser.py)             │    4 semantic dimensions from JD
+│  Stage 0 — LLM JD Parser   │  ← Gemini 2.5 Flash extracts
+│  (jd_parser.py)             │    5 semantic dimensions from JD
 └────────────┬────────────────┘
              │  JD Dimension Embeddings
              ▼
 ┌─────────────────────────────┐
 │  Stage 1 — FAISS Retrieval  │  ← Sentence-Transformers embed
-│  (retrieval_faiss.py)       │    all 5,000+ candidates into
-│                             │    a flat inner-product index.
-│  5000 candidates → Top 200  │    Multi-dimensional JD query
-└────────────┬────────────────┘    narrows to Top 200 in ~ms
-             │
-             ▼
-┌─────────────────────────────┐
-│  Stage 2 — Multi-Score      │  ← Fully semantic scoring:
-│  (technical/seniority/      │    • TechnicalScorer (cosine sim)
-│   behavioral_scorer.py)     │    • SeniorityScorer (concept emb)
-│                             │    • BehavioralScorer (decay math)
-│  Top 200 → Top 50           │    Zero regex. Zero keyword lists.
+│  (retrieval_faiss.py)       │    all candidates into a flat
+│                             │    inner-product index.
+│  + Semantic Title Filter    │    Filters out irrelevant roles
+│  All candidates → Top 300   │    (HR, Sales, etc.) before scoring
 └────────────┬────────────────┘
              │
              ▼
 ┌─────────────────────────────┐
-│  Stage 3 — LLM Re-Ranker   │  ← Gemini 2.0 Flash acts as the
+│  Stage 2 — 8-Dimensional    │  ← Fully semantic scoring:
+│  Multi-Score Engine         │    • TechnicalScorer (cosine sim)
+│  (technical/seniority/      │    • SeniorityScorer (concept emb)
+│   behavioral/signal/        │    • BehavioralScorer (decay math)
+│   education_scorer.py)      │    • SignalScorer (all 23 signals)
+│                             │    • EducationScorer (tier + field)
+│  Top 300 → Top 150          │    Zero regex. Zero keyword lists.
+└────────────┬────────────────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│  Stage 3 — LLM Re-Ranker   │  ← Gemini 2.5 Flash acts as the
 │  (llm_reranker.py)          │    ultimate recruiter judge.
 │                             │    Outputs: score 0-100 + bespoke
-│  Top 50 → Final 50 ranked   │    contextual reasoning per candidate
-└────────────┬────────────────┘    Circuit breaker fallback included
+│  Top 150 → Final 100 ranked │    contextual reasoning per candidate
+└────────────┬────────────────┘    Resilient fallback scoring included
              │
              ▼
    team_submission.csv + explainability_logs.json
@@ -53,7 +56,7 @@ Raw Job Description (any text)
 |---|---|
 | Embedding Model | `all-MiniLM-L6-v2` (Sentence-Transformers) |
 | Vector Index | FAISS (`IndexFlatIP`, inner-product cosine) |
-| LLM | Gemini 2.0 Flash (JD parsing + re-ranking) |
+| LLM | Gemini 2.5 Flash (JD parsing + re-ranking) |
 | API Server | FastAPI + Uvicorn |
 | Containerization | Docker |
 | Data Processing | Pandas, NumPy |
@@ -63,10 +66,13 @@ Raw Job Description (any text)
 ##  Key Features
 
 - **Zero Keyword Matching** — every scoring component uses cosine similarity over dense embeddings, not string matching or regex
-- **Dynamic JD Understanding** — Gemini parses any raw job description into structured semantic dimensions; no hardcoded JD required  
+- **Dynamic JD Understanding** — Gemini parses any raw job description into 5 structured semantic dimensions; no hardcoded JD required  
+- **Semantic Title Filtering** — prevents irrelevant roles (HR, Sales, Mechanical) from polluting rankings using embedding similarity
 - **Two-Brain Architecture** — FAISS provides millisecond-speed retrieval at scale; Gemini provides deep contextual reasoning for precision
-- **Hire-Ready Index™** — proprietary behavioral signal that combines recruiter response rate, notice period, inactivity decay, and GitHub activity into one metric
-- **Resilient by Design** — circuit-breaker fallback generates clean structured reasoning locally if LLM quota is exhausted
+- **8-Dimensional Scoring** — Technical Fit, Seniority, Founding Fit, Signal Score, Education, Evidence Strength, Hiring Probability, Behavioral Fit
+- **All 23 Behavioral Signals** — comprehensive integration of every Redrob platform signal across 6 sub-groups
+- **Education & Certification Scoring** — semantic field-of-study matching, institution tier, and certification relevance
+- **Resilient by Design** — circuit-breaker fallback estimates LLM-equivalent scores locally if API quota is exhausted (no score collapse)
 
 ---
 
@@ -82,26 +88,27 @@ pip install -r requirements.txt
 ```
 
 ### 2. Configure
-Open `src/config.py` and set:
-```python
-GEMINI_API_KEY = "your_key_here"   # or set as env variable GEMINI_API_KEY
-DATA_DIR = "/path/to/challenge/data"
-MAX_CANDIDATES = 5000              # Set to None to process all candidates
+Set environment variables:
+```bash
+export GEMINI_API_KEY="your_key_here"
+export DATA_DIR="/path/to/challenge/data"  # Optional, defaults to challenge_data/
 ```
+
+Or edit `src/config.py` directly.
 
 ### 3. Run the Ranking Pipeline
 ```bash
-cd ai_recruiter_submission
 python src/build_ranking.py
 ```
 
 The pipeline will:
-1. Parse the JD dynamically via Gemini
+1. Parse the JD dynamically via Gemini into 5 semantic dimensions
 2. Embed all candidates and index into FAISS
-3. Retrieve Top 200 semantically relevant candidates
-4. Score all 200 across 6 dimensions
-5. LLM re-rank the Top 50 with contextual reasoning
-6. Output `outputs/team_submission.csv` and `outputs/explainability_logs.json`
+3. Filter out irrelevant titles using semantic similarity
+4. Retrieve Top 300 semantically relevant candidates
+5. Score all 300 across 8 dimensions
+6. LLM re-rank the Top 100 with contextual reasoning
+7. Output `outputs/team_submission.csv` and `outputs/explainability_logs.json`
 
 ### 4. Launch the FastAPI Dashboard
 ```bash
@@ -110,7 +117,7 @@ python dashboard/app.py
 Open `http://localhost:5000` in your browser.
 
 API Endpoints:
-- `GET /` — Interactive dashboard UI
+- `GET /` — Interactive dashboard UI with radar charts and score breakdowns
 - `GET /api/dashboard` — Full ranked data (JSON)
 - `GET /api/health` — Pipeline status and model info
 
@@ -131,61 +138,96 @@ docker run -p 5000:5000 -e GEMINI_API_KEY=your_key ai-recruiter
 ##  Repository Structure
 
 ```
-ai_recruiter_submission/
+Intelligent-Candidate-Discovery/
 ├── src/
 │   ├── build_ranking.py        # Main pipeline orchestrator
 │   ├── config.py               # All configuration in one place
 │   ├── pipeline/
-│   │   ├── jd_parser.py        # LLM-powered JD dimension extractor
+│   │   ├── __init__.py
+│   │   ├── jd_parser.py        # LLM-powered JD dimension extractor (5 dimensions)
 │   │   ├── data_loader.py      # Stream-based JSONL candidate loader
 │   │   ├── embedding_engine.py # Sentence-Transformers wrapper
 │   │   ├── retrieval_faiss.py  # FAISS index builder + searcher
-│   │   ├── llm_reranker.py     # Gemini re-ranker with circuit breaker
-│   │   └── explainer.py        # Fallback reasoning generator
+│   │   ├── llm_reranker.py     # Gemini re-ranker with resilient fallback
+│   │   └── explainer.py        # Rich reasoning generator
 │   └── scoring/
+│       ├── __init__.py
 │       ├── technical_scorer.py # Multi-dimensional JD cosine similarity
 │       ├── seniority_scorer.py # Semantic concept embedding scorer
-│       └── behavioral_scorer.py# Hire-Ready Index with decay modeling
+│       ├── behavioral_scorer.py# Hire-Ready Index with decay modeling
+│       ├── signal_scorer.py    # All 23 Redrob signals (NEW)
+│       └── education_scorer.py # Education + certification scorer (NEW)
 ├── dashboard/
 │   ├── app.py                  # FastAPI application
-│   ├── templates/index.html    # Dashboard UI
+│   ├── templates/index.html    # Premium dark-theme dashboard with radar charts
 │   └── static/                 # CSS + JS assets
 ├── outputs/
-│   ├── team_submission.csv     # Final ranked candidate list
-│   └── explainability_logs.json# Per-candidate score breakdowns
+│   ├── team_submission.csv     # Final ranked candidate list (100 candidates)
+│   └── explainability_logs.json# Per-candidate score breakdowns + signal details
+├── tools/
+│   └── validate_submission.py  # Submission format validator
+├── docs/
+│   └── walkthrough.md          # Methodology & architecture documentation
+├── challenge_data/             # Challenge dataset (JSONL not committed)
 ├── Dockerfile
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
 ##  Output Format
 
-`team_submission.csv`:
+`team_submission.csv` (100 candidates):
 ```
 candidate_id,rank,score,reasoning
-CAND_0001056,1,0.4821,"Senior ML Engineer with 8 years at Flipkart. Strong semantic alignment with ML/Retrieval requirements. High GitHub activity (87) signals active open-source engagement."
+CAND_0002025,1,0.8442,"Senior AI engineer with 5.9 years building production ML systems. Strong semantic alignment with ML/Retrieval requirements. Exceptional technical match for embeddings, retrieval, and ranking."
 ...
 ```
 
 `explainability_logs.json`:
 ```json
 {
-  "CAND_0001056": {
+  "CAND_0002025": {
     "rank": 1,
-    "total_score": 0.4821,
+    "total_score": 0.8442,
     "scores": {
-      "technical_fit": 0.82,
+      "technical_fit": 0.86,
       "seniority_fit": 0.70,
       "founding_fit": 0.65,
+      "signal_score": 0.72,
+      "education_fit": 0.80,
+      "evidence_strength": 0.75,
       "hiring_probability": 0.78,
-      "behavioral_fit": 0.61,
-      "evidence_strength": 0.75
+      "behavioral_fit": 0.61
+    },
+    "signal_breakdown": {
+      "engagement": 0.68,
+      "market_demand": 0.55,
+      "availability": 0.72,
+      "platform_trust": 0.81,
+      "hiring_track_record": 0.65,
+      "technical_signals": 0.60
     },
     "llm_reasoning": "..."
   }
 }
 ```
+
+---
+
+##  Scoring Dimensions
+
+| Dimension | Weight | What It Measures |
+|---|---|---|
+| Technical Fit | 30% | Semantic cosine similarity between JD dimensions and candidate career chunks |
+| Seniority Fit | 15% | Evidence of architecture ownership, leadership, and scale |
+| Signal Score | 15% | Composite of all 23 Redrob behavioral signals |
+| Hiring Probability | 10% | Availability, response rate, notice period, location fit |
+| Behavioral Fit | 10% | Platform engagement, profile completeness, interview track record |
+| Founding Fit | 10% | Startup DNA, 0-to-1 experience, open-source activity |
+| Education Fit | 5% | Field of study relevance, institution tier, certifications |
+| Evidence Strength | 5% | Quantifiable impact metrics in career descriptions |
 
 ---
 

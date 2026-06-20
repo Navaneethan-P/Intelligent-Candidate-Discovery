@@ -3,56 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Recruiter Dashboard</title>
+    <title>AI Recruiter — Intelligent Candidate Discovery Dashboard</title>
+    <meta name="description" content="AI-powered candidate ranking dashboard using semantic search, vector embeddings, and LLM re-ranking for intelligent talent discovery." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/static/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>AI Recruiter Dashboard</h1>
+    <div class="app-shell">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo-mark">AI</div>
+          <div>
+            <h1>Intelligent Candidate Discovery</h1>
+            <p class="subtitle">Agentic Hybrid Semantic Ranking Engine — Redrob AI Challenge</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <span class="badge badge-live" id="pipelineStatus">Pipeline Ready</span>
+        </div>
+      </header>
 
+      <!-- Executive Summary Cards -->
       <section class="summary-section">
-        <h2>Executive Summary</h2>
         <div class="metrics-grid">
-          <div class="metric-card">
+          <div class="metric-card metric-purple">
+            <div class="metric-icon">📊</div>
             <p class="metric-label">Candidates Processed</p>
-            <h3 class="metric-val">50,000+</h3>
+            <h3 class="metric-val" id="processedCount">—</h3>
           </div>
-          <div class="metric-card">
-            <p class="metric-label">Top Candidates</p>
-            <h3 class="metric-val" id="topCandidates">-</h3>
+          <div class="metric-card metric-blue">
+            <div class="metric-icon">🏆</div>
+            <p class="metric-label">Top Ranked</p>
+            <h3 class="metric-val" id="topCandidates">—</h3>
           </div>
-          <div class="metric-card">
+          <div class="metric-card metric-green">
+            <div class="metric-icon">🎯</div>
             <p class="metric-label">Avg Technical Fit</p>
-            <h3 class="metric-val" id="avgTech">-</h3>
+            <h3 class="metric-val" id="avgTech">—</h3>
           </div>
-          <div class="metric-card">
-            <p class="metric-label">Avg Founding Fit</p>
-            <h3 class="metric-val" id="avgFounding">-</h3>
+          <div class="metric-card metric-orange">
+            <div class="metric-icon">📡</div>
+            <p class="metric-label">Avg Signal Score</p>
+            <h3 class="metric-val" id="avgSignal">—</h3>
           </div>
-          <div class="metric-card">
-            <p class="metric-label">Avg Hire-Ready Index</p>
-            <h3 class="metric-val" id="avgHiring">-</h3>
+          <div class="metric-card metric-teal">
+            <div class="metric-icon">✅</div>
+            <p class="metric-label">Avg Hire-Ready</p>
+            <h3 class="metric-val" id="avgHiring">—</h3>
           </div>
         </div>
       </section>
 
-      <!-- <hr class="divider" /> -->
-
+      <!-- Main Dashboard -->
       <div class="dashboard-workspace">
+        <!-- Left Panel: Candidate Table -->
         <div class="panel-left">
-          <h2>Top 100 Candidates</h2>
-          <div class="control-group">
-            <label for="candidateSelect">Select Candidate:</label>
-            <select id="candidateSelect" class="styled-select"></select>
+          <div class="panel-header">
+            <h2>Ranked Candidates</h2>
+            <div class="search-box">
+              <input type="text" id="searchInput" placeholder="Search by ID or reasoning..." />
+            </div>
           </div>
           <div class="table-frame">
             <table id="candidateTable">
               <thead>
                 <tr>
-                  <th>candidate_id</th>
-                  <th>rank</th>
-                  <th>score</th>
-                  <th>reasoning</th>
+                  <th>Rank</th>
+                  <th>Candidate ID</th>
+                  <th>Score</th>
+                  <th>Reasoning</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -60,59 +82,83 @@
           </div>
         </div>
 
+        <!-- Right Panel: Candidate Detail -->
         <div class="panel-right">
-          <h2 id="candidateTitle" class="candidate-header">Candidate: -</h2>
-          <div class="meta-row">
-            <p><strong>Rank:</strong> <span id="rank" class="highlight-text">-</span></p>
-            <p><strong>Final Score:</strong> <span id="score" class="highlight-text">-</span></p>
+          <div class="detail-header">
+            <h2 id="candidateTitle">Select a Candidate</h2>
+            <div class="meta-badges">
+              <span class="badge badge-rank" id="rankBadge">—</span>
+              <span class="badge badge-score" id="scoreBadge">—</span>
+            </div>
           </div>
 
-          <h3 class="section-title">Recruiter Reasoning</h3>
-          <div class="reason-box" id="reasoning">-</div>
+          <!-- Reasoning -->
+          <div class="detail-section">
+            <h3 class="section-title">🧠 Recruiter Reasoning</h3>
+            <div class="reason-box" id="reasoning">Select a candidate from the table to view their detailed analysis.</div>
+          </div>
           
-          <h3 class="section-title">Six Pillar Score Breakdown</h3>
-          <div class="analytics-matrix">
-            <div class="score-row">
-              <label><span id="techVal" class="score-value">0</span>Technical Fit : </label>
-              <div class="progress-track">
-                <div id="techBar" class="progress-fill"></div>
-              </div>
+          <!-- Radar Chart -->
+          <div class="detail-section">
+            <h3 class="section-title">📊 Multi-Dimensional Score Profile</h3>
+            <div class="chart-container">
+              <canvas id="radarChart" width="380" height="380"></canvas>
             </div>
-            <div class="score-row">
-              <label><span id="seniorVal" class="score-value">0</span>Seniority Fit :</label>
-              <div class="progress-track">
-                <div id="seniorBar" class="progress-fill"></div>
-              </div>
-            </div>
-            <div class="score-row">
-              <label><span id="foundingVal" class="score-value">0</span>Founding-Team Fit :</label>
-              <div class="progress-track">
-                <div id="foundingBar" class="progress-fill"></div>
-              </div>
-            </div>
-            <div class="score-row">
-              <label><span id="hiringVal" class="score-value">0</span>Hire-Ready Index :</label>
-              <div class="progress-track">
-                <div id="hiringBar" class="progress-fill"></div>
-              </div>
-            </div>
-            <div class="score-row">
-              <label><span id="behaviorVal" class="score-value">0</span>Behavioral Fit :</label>
-              <div class="progress-track">
-                <div id="behaviorBar" class="progress-fill"></div>
-              </div>
-            </div>
-            <div class="score-row">
-              <label><span id="evidenceVal" class="score-value">0</span>Evidence Strength :</label>
-              <div class="progress-track">
-                <div id="evidenceBar" class="progress-fill"></div>
-              </div>
-            </div>
-          </div> 
-        </div> 
+          </div>
 
-      </div> 
-    </div> 
+          <!-- Score Breakdown -->
+          <div class="detail-section">
+            <h3 class="section-title">📋 Eight-Pillar Score Breakdown</h3>
+            <div class="analytics-matrix">
+              <div class="score-row">
+                <label>Technical Fit <span id="techVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="techBar" class="progress-fill bar-blue"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Seniority Fit <span id="seniorVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="seniorBar" class="progress-fill bar-purple"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Founding-Team Fit <span id="foundingVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="foundingBar" class="progress-fill bar-orange"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Signal Score <span id="signalVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="signalBar" class="progress-fill bar-teal"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Education Fit <span id="educationVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="educationBar" class="progress-fill bar-green"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Evidence Strength <span id="evidenceVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="evidenceBar" class="progress-fill bar-pink"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Hire-Ready Index <span id="hiringVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="hiringBar" class="progress-fill bar-yellow"></div></div>
+              </div>
+              <div class="score-row">
+                <label>Behavioral Fit <span id="behaviorVal" class="score-value">0</span></label>
+                <div class="progress-track"><div id="behaviorBar" class="progress-fill bar-indigo"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Signal Breakdown -->
+          <div class="detail-section" id="signalBreakdownSection" style="display:none;">
+            <h3 class="section-title">📡 Behavioral Signal Breakdown</h3>
+            <div class="signal-grid" id="signalGrid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p>Built for The Data & AI Challenge — Redrob AI Hackathon 2026</p>
+        <p class="tech-stack">Sentence-Transformers · FAISS · Gemini 2.5 Flash · FastAPI</p>
+      </footer>
+    </div>
 
     <script src="/static/js/app.js"></script>
   </body>
